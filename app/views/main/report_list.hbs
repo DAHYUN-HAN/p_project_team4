@@ -1,0 +1,77 @@
+               <!-- Nav -->
+                  <nav id="nav">
+                     <ul>
+                        <li><a href="#top" id="top-link"><span class="icon solid fa-indent">논문 목록</span></a></li>
+                     </ul>
+                  </nav>
+
+            </div>
+            
+         </div>
+
+      <!-- Main -->
+         <div id="main">
+                
+                <section id="top" class="five dark cover" style="cursor:pointer;" onclick="{{status.link}}">
+                  <div class="container">
+                  </div>
+               </section>
+
+                <!-- My board -->
+                    <section id="recommend" class="six">
+                  <div class="container">
+
+                     <header>
+                        <h2>'{{inputselectword}}' 논문 목록</h2>
+                      </header>
+                            <table class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th colspan="4" scope="col">제목</th>
+                                        <th scope="col">발행일자</th>
+                                        <th scope="col">바로가기</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                     {{#each obj.root.result.items.item}} <!-- 는 핸들바의 루프 템플릿으로 students 객체(배열)의 크기만큼 반복 처리됨 -->
+                                        <tr class="table-odd">
+                                            <th colspan="4" class="titlesize">{{this.title._text}}</th>
+                                            <td style="text-align:center;">{{this.issue.yymm._text}}</td>
+                                            <td style="text-align:center;"><a href="{{this.link_url._text}}" target="_blank">바로가기</a></td>
+                                        </tr>
+                                    {{/each}}
+                                </tbody>
+                            </table>
+                            <form method="post" action="/savewordindb">
+                                <span style="float:right;"><button type="button" class="btn-word-save">단어 저장</button></span>
+                                <input type="hidden" class="textcontrol" name="user" value="{{user.email}}">
+                                <input type="hidden" name="inputselectword" id="selectword" value="{{inputselectword}}">
+                            </form>
+                               <form method="post" action="/report_list">
+                                   <input type="hidden" name="inputselectword" id="selectword" value="{{inputselectword}}">
+
+                                    <input type="hidden" name="pageNo" value="{{pageNo}}">
+                                   
+                                    <div>
+                                        <ul id="page" class="pagination">
+                                            <li class="page-item {{first}}">
+                                                <a class="page-link pageclickpre" href="#page">&laquo;</a>
+                                            </li>
+                                            {{#each print}} <!-- 는 핸들바의 루프 템플릿으로 students 객체(배열)의 크기만큼 반복 처리됨 -->
+                                            <li class="page-item {{this.Status}}">
+                                                <a class="page-link pageclick" href="#page">{{this.page}}</a>
+                                            </li>
+                                            {{/each}}
+                                            <li class="page-item {{second}}">
+                                                <a class="page-link pageclickne" href="#page">&raquo;</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                              </form>
+                  </div>
+               </section>
+       
+       
+        </div>
+   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>   
+              <script src="/lib/bootstrap/js/bootstrap.min.js"></script>

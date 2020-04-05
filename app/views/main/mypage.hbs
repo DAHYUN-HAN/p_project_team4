@@ -1,0 +1,83 @@
+
+
+               <!-- Nav -->
+                  <nav id="nav">
+                     <ul>
+                        <li><a href="#receive" id="top-link"><span class="icon solid fa-bookmark">나의 핵심 단어</span></a></li>
+                        <li><a href="#signout" id="contact-link"><span class="icon solid fa-times">회원 탈퇴</span></a></li>
+                     </ul>
+                  </nav>
+
+            </div>
+            
+         </div>
+
+      <!-- Main -->
+         <div id="main">
+
+            <!-- Intro -->
+               <section id="top" class="five dark cover" style="cursor:pointer;" onclick="{{status.link}}">
+                  <div class="container">
+                  </div>
+               </section>
+
+            <!-- Portfolio -->
+               <section id="receive" class="two">
+                  <div class="container">
+
+                     <header>
+                        <h2>저장한 핵심 단어</h2>
+                     </header>
+                                
+                                <input type="hidden" name="inputselectword" id="selectword" value="">
+                                <input type="hidden" name="pageNo" value="1">
+                                <table class="table table-hover">
+    {{#each saveword}}
+        <tr class="table-odd">
+            <th style="border:1px solid;"><a data-id="{{this._id}}" type="button" class="word-delete" href="#word-delete">삭제</a></th>
+            <td style="text-align:center; border:1px solid;">{{this.word}}</td>
+            <td style="text-align:center; border:1px solid;"><a href="/report_list/{{this.word}}">바로가기</a></td>
+        </tr>
+     {{/each}}
+</table>
+                        
+                  </div>
+               </section>
+
+
+                
+                <section id="signout" class="six">
+                  <div class="container">
+
+                     <header>
+                        <h2>회원 탈퇴</h2>
+                        <span class="outred">버튼 클릭시 취소할 수 없습니다.</span>
+                     </header>
+                     
+                     {{#each alert.message}}
+        <div class="alert alert-success">
+            {{this}}
+        </div>
+    {{/each}}
+    {{#each alert.error}}
+        <div class="alert alert-danger">
+            {{this}}
+        </div>
+    {{/each}}
+                     <form method="post" action="/signout_user" class="formposition">
+                     <input name="user_email" type="hidden" value="{{user.email}}"/>
+        <div class="form-group row">
+            <label for="example-date-input" class="">비밀번호</label>
+            <div class="loginsize">
+                <input name="user_password" class="passportcontrol" type="password"/>
+            </div>
+        
+        </div>
+            <button type="submit" class="buttonposition">회원탈퇴</button>
+        
+    </form>
+                  </div>
+               </section>
+       
+       
+        </div>

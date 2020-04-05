@@ -1,0 +1,52 @@
+               <!-- Nav -->
+                  <nav id="nav">
+                     <ul>
+                        <li><a href="#contact" id="top-link"><span class="icon solid fa-question">Q&A</span></a></li>
+                     </ul>
+                  </nav>
+
+            </div>
+            
+         </div>
+
+      <!-- Main -->
+         <div id="main">
+
+            <!-- Intro -->
+               <section id="top" class="five dark cover" style="cursor:pointer;" onclick="{{status.link}}">
+                  <div class="container">
+                  </div>
+               </section>
+                
+            <section id="contact" class="four">
+                  <div class="container">
+                     <header>
+                        <h3>Q&A</h3>
+                     </header>
+                            <form method="post" action="/sum_result">
+                                <h4>질문 내용</h4>
+                                <input type="text" value="{{question}}" readonly><br>
+                               <!-- <h4>답변</h4>
+                                <input type="text"  value="{{answer}}" readonly><br><br>-->
+                                
+                                <h4>답변</h4>
+                                <div style="background-color:white; margin:10px; padding:30px;">
+                                {{answersentence1}}
+                                <span style="color:red;font-weight: bold;">{{answersentence2}}</span>
+                                {{answersentence3}}
+                                </div><br>
+                                
+                                <h4>재 질문하기</h4>
+                                <input type="hidden" name="Summarycontent" value="{{content}}">
+                                <input type="text" name="inputquestion" placeholder="질문할 내용을 입력하세요.">
+                                <button type="button" id="searchSubmit" class="btn-question-submit">질문하기</button>
+                                
+                            </form>
+                        </div>
+                </section>
+    
+       
+        </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>   
+    <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+  

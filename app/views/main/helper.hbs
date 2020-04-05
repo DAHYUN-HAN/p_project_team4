@@ -1,0 +1,82 @@
+               <!-- Nav -->
+                  <nav id="nav">
+                     <ul>
+                        <li><a href="#contact" id="top-link"><span class="icon solid fa-font">핵심단어</span></a></li>
+                        <li><a href="#contact2" id="top-link"><span class="icon solid fa-highlighter">주요 문장</span></a></li>
+                        <li><a href="#contact3" id="top-link"><span class="icon solid fa-question">Q&A</span></a></li>
+                     </ul>
+                  </nav>
+
+            </div>
+            
+         </div>
+
+      <!-- Main -->
+         <div id="main">
+
+            <!-- Intro -->
+               <section id="top" class="five dark cover" style="cursor:pointer;" onclick="{{status.link}}">
+                  <div class="container">
+                  </div>
+               </section>
+
+            <section id="contact" class="four">
+                  <div class="container">
+                            <form style="" method="post" action="/report_list">
+                                <h2>문장 분석 결과</h2><br><br>
+                                <h3>핵심 단어</h3>
+                                <h6>하단 단어 클릭시 관련 논문 페이지로 이동합니다.</h6><br>
+                                
+                                <input type="hidden" name="inputselectword" id="selectword" value="">
+                                <input type="hidden" name="pageNo" value="1">
+                                <table>
+                                    <td><input type="text" style="cursor:pointer; color:#619290; font-weight:bold; text-align:center;" onclick="" class="btn-report-submit" value="{{resultword1}}" readonly></td>
+                                    <td><input type="text" style="cursor:pointer; color:#619290; font-weight:bold; text-align:center;" onclick="" class="btn-report-submit" value="{{resultword2}}" readonly></td>
+                                    <td><input type="text" style="cursor:pointer; color:#619290; font-weight:bold; text-align:center;" onclick="" class="btn-report-submit" value="{{resultword3}}" readonly></td>
+                                </table>
+                                
+                                <h4>분석에 영향을 미친 단어</h4>
+                                <table>
+                                    <td><input type="text" style="cursor:pointer; font-weight:bold; text-align:center;" class="btn-report-submit" value="{{firstword}}" readonly></td>
+                                    <td><input type="text" style="cursor:pointer; font-weight:bold; text-align:center;" class="btn-report-submit" value="{{secondword}}" readonly></td>
+                                    <td><input type="text" style="cursor:pointer; font-weight:bold; text-align:center;" class="btn-report-submit" value="{{thirdword}}" readonly></td>
+                                </table>
+                            </form>
+                        </div>
+                </section>
+             
+             
+                <section id="contact2" class="four">
+                  <div class="container">
+                            <form style="" method="post" action="/report_list">
+                                
+                                <h3>주요 문장</h3>
+                                <div style="background-color:white; margin:10px; padding:30px;">
+                                    {{firstblank}}<span style="color:red; font-weight: bold;">{{firstsentence}}</span>{{secondblank}}<span style="color:red; font-weight: bold;">{{secondsentence}}</span>{{thirdblank}}
+                                </div>
+                                
+                                
+                            </form>
+                        </div>
+                </section>
+    
+            <section id="contact3" class="four">
+                  <div class="container">
+                            <form style="" method="post" action="/sum_result">
+
+                                <h3>Q & A</h3>
+                                <input type="text" name="inputquestion" placeholder="원하는 질문을 입력해주세요.">
+                                <input type="hidden" name="Summarycontent" value="{{content}}">
+                                   
+                            
+                                <br><br>
+                                <button type="button" onclick="location.href ='/#portfolio'">메인</button>
+                                <button type="button" class="btn-question-submit">질문하기</button>
+                            </form>
+                        </div>
+                </section>
+       
+       
+        </div>
+   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>   
+              <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
